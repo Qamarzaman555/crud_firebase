@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 import 'firebase_options.dart';
-import 'Views/Home_View/home_vu.dart';
+import 'screens/user/user_view/user_vu.dart';
 
 // void main() {
 Future<void> main() async {
@@ -17,9 +18,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeVeiw(),
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.orange),
+      ),
+      home: const UserView(),
     );
   }
 }
