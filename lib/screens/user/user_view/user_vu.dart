@@ -47,22 +47,41 @@ class UserView extends StackedView<UserViewModel> {
                 itemCount: viewModel.users.length,
                 itemBuilder: (context, index) {
                   final user = viewModel.users[index];
-                  return ListTile(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => UserFormView(user: user)));
-                    },
-                    title: Text(user.name!),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(user.email!),
-                        Text(user.phoneNumber!),
-                      ],
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SingleChildScrollView(
+                      child: ListTile(
+                        // titleTextStyle: TextStyle(
+                        //     fontWeight: FontWeight.bold, color: Colors.black),
+                        // subtitleTextStyle: TextStyle(
+                        //     fontWeight: FontWeight.w500, color: Colors.black),
+                        hoverColor: Colors.orange,
+                        tileColor: Colors.orange.shade200,
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => UserFormView(user: user)));
+                        },
+                        title: Center(child: Text(user.name!)),
+                        subtitle: Column(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            // Text(user.email!),
+                            Text("Age:  ${user.age}"),
+                            Text("Gender:  ${user.gender!}"),
+                            Text("Phone Number:  ${user.phoneNumber!}"),
+                            Text("Doctor Name:  ${user.doctorName!}"),
+                            Text("Address:  ${user.address!}"),
+                            Text("Admit Date:  ${user.admitDate!}"),
+                            Text("Discharge Date:  ${user.dischargeDate!}"),
+                            Text("SwtichData:  ${user.check!}"),
+                          ],
+                        ),
+                        // trailing: Text(user.id!),
+                      ),
                     ),
-                    trailing: Text("${user.age}"),
                   );
                 },
               );
@@ -71,6 +90,7 @@ class UserView extends StackedView<UserViewModel> {
               child: Text('Something went wrong'),
             );
           }),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(
             context, MaterialPageRoute(builder: (_) => const UserFormView())),
