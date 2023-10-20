@@ -2,7 +2,7 @@ import 'package:crud_firebase/widgets/chi_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../screens/user/user_form/user_form_vu.dart';
+import '../../user/user_form/user_form_vu.dart';
 import '../doctor_form/doctor_form_vu.dart';
 import 'doctor_vm.dart';
 

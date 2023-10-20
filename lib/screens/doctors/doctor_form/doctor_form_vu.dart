@@ -2,9 +2,9 @@ import 'package:crud_firebase/widgets/chi_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../../model/user_model.dart';
-import '../../../widgets/chi_appbar.dart';
-import '../../screens/user/user_form/user_form_vm.dart';
+import '../../../../model/user_model.dart';
+import '../../../../widgets/chi_appbar.dart';
+import '../../user/user_form/user_form_vm.dart';
 
 class DoctorViewForm extends StackedView<UserFormViewModel> {
   final UserModel? user;
