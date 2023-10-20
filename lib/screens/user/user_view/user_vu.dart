@@ -2,6 +2,7 @@ import 'package:crud_firebase/widgets/chi_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../doctors/doctor_View/doctor_vu.dart';
 import '../user_form/user_form_vu.dart';
 import 'user_vm.dart';
 
@@ -90,6 +91,22 @@ class UserView extends StackedView<UserViewModel> {
               child: Text('Something went wrong'),
             );
           }),
+
+      bottomSheet: Padding(
+        padding: const EdgeInsets.all(16),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            maximumSize: const Size(double.infinity, 48),
+            minimumSize: const Size(double.infinity, 48),
+            fixedSize: const Size(double.infinity, 48),
+          ),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => const DoctorView()));
+          },
+          child: const Text('See Doctors'),
+        ),
+      ),
 
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(

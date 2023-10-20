@@ -154,15 +154,10 @@ class UserFormViewModel extends BaseViewModel {
     if (formKey.currentState!.validate()) {
       formKey.currentState?.save();
       user = UserModel(
-        name: name,
+        doctorName: doctorName,
         age: age,
         phoneNumber: phoneNumber,
-        gender: gender,
-        doctorName: doctorName,
         address: address,
-        admitDate: admitDate,
-        dischargeDate: dischargeDate,
-        check: check,
       );
       final resp = await _client.post(endpoint: 'users', data: user!.toJson());
       if (resp['status'] == 'Ok') {
@@ -178,6 +173,38 @@ class UserFormViewModel extends BaseViewModel {
       formKey.currentState?.save();
       final resp = await _client.update(
           endpoint: 'users/${user?.id}', data: user!.toJson());
+      if (resp['status'] == 'Ok') {
+        Navigator.pop(context);
+      } else {
+        print(resp['message']);
+      }
+    }
+  }
+
+  Future<void> addDoctor() async {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState?.save();
+      user = UserModel(
+        doctorName: doctorName,
+        age: age,
+        phoneNumber: phoneNumber,
+        address: address,
+      );
+      final resp =
+          await _client.post(endpoint: 'doctors', data: user!.toJson());
+      if (resp['status'] == 'Ok') {
+        Navigator.pop(context);
+      } else {
+        print(resp['message']);
+      }
+    }
+  }
+
+  Future<void> updateDoctor() async {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState?.save();
+      final resp = await _client.update(
+          endpoint: 'doctors/${user?.id}', data: user!.toJson());
       if (resp['status'] == 'Ok') {
         Navigator.pop(context);
       } else {

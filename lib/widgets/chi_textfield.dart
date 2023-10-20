@@ -6,6 +6,7 @@ class CHITextField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
   final TextInputType keyBordType;
+  final void Function()? onTap;
   const CHITextField({
     super.key,
     this.hintText,
@@ -13,6 +14,7 @@ class CHITextField extends StatelessWidget {
     this.onSaved,
     this.validator,
     this.keyBordType = TextInputType.text,
+    this.onTap,
   });
 
   @override

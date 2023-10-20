@@ -22,7 +22,6 @@ class UserModel {
     this.admitDate,
     this.dischargeDate,
     this.check,
-    // this.email,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -37,14 +36,12 @@ class UserModel {
       admitDate: json["admitDate"],
       dischargeDate: json["dischargeDate"],
       check: json["check"],
-      // email: json["email"],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       "name": name,
-      // "email": email,
       "phoneNumber": phoneNumber,
       "age": age,
       "address": address,
